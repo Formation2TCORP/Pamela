@@ -1,0 +1,16 @@
+
+
+block content
+h2 Liste des comptes
+  if registrations.length
+  
+    table.listing-table.table-dark.table-striped
+      tr
+        th Nom
+        th Mot de passe
+      each registration in registrations
+        tr
+          td= registration.name
+          td= registration.password
+  else
+    p No registrations yet :(

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+
+  form(action="." method="POST" class="form-registration")
+    label(for="name")
+    input(
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      placeholder ="votre nom"
+      value=data.name
+    )
+    label(for="password") 
+    input(
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      placeholder = "votre mot de passe"
+      value=data.password
+    )
+
+    input(
+      type="submit"
+      value="Submit"
+      class="btn btn-lg btn-primary btn-block"
+    )
+    a(
+      href="../node-app/auth.html"
+    ) Connectez-vous
